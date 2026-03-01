@@ -4,7 +4,8 @@
 - **Product**: Valued AI — AI-powered supply chain automation for manufacturing companies
 - **Purpose**: Simple marketing site to advertise the product and capture demo bookings
 - **Repo**: https://github.com/ValuedAI/website
-- **Deployment**: Vercel (free tier) — auto-deploys from GitHub
+- **Live site**: https://www.valued-ai.info
+- **Deployment**: Vercel (free tier) — auto-deploys from GitHub on push to `main`
 
 ## Tech Stack
 - Next.js 16 (App Router, TypeScript, `src/` directory)
