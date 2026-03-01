@@ -5,12 +5,39 @@ import { ShineBorder } from "@/components/ui/shine-border";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { brand } from "@/lib/brand";
 
+const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!;
+
 export function BookDemo() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          company: formData.get("company"),
+          email: formData.get("email"),
+          role: formData.get("role"),
+        }),
+      });
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -46,6 +73,7 @@ export function BookDemo() {
                         Name
                       </label>
                       <input
+                        name="name"
                         type="text"
                         required
                         placeholder="Jane Smith"
@@ -57,6 +85,7 @@ export function BookDemo() {
                         Company
                       </label>
                       <input
+                        name="company"
                         type="text"
                         required
                         placeholder="Acme Manufacturing"
@@ -70,6 +99,7 @@ export function BookDemo() {
                       Work Email
                     </label>
                     <input
+                      name="email"
                       type="email"
                       required
                       placeholder="jane@acmemfg.com"
@@ -81,7 +111,10 @@ export function BookDemo() {
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">
                       Your Role
                     </label>
-                    <select className="w-full px-4 py-2.5 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand-400 transition-all bg-white text-slate-600">
+                    <select
+                      name="role"
+                      className="w-full px-4 py-2.5 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand-400 transition-all bg-white text-slate-600"
+                    >
                       <option>Supply Chain</option>
                       <option>Operations</option>
                       <option>Engineering</option>
@@ -91,15 +124,22 @@ export function BookDemo() {
                     </select>
                   </div>
 
+                  {error && (
+                    <p className="text-sm text-red-500 text-center">
+                      Something went wrong. Please try again.
+                    </p>
+                  )}
+
                   <div className="pt-2">
                     <ShimmerButton
                       className="w-full h-12"
                       shimmerColor={brand.accentLight}
                       shimmerSize="0.1em"
-                      background={brand.accent}
+                      background={submitting ? "#94a3b8" : brand.accent}
+                      disabled={submitting}
                     >
                       <span className="text-sm font-medium text-white">
-                        Book My Demo
+                        {submitting ? "Submitting..." : "Book My Demo"}
                       </span>
                     </ShimmerButton>
                   </div>
