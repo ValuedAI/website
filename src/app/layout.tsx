@@ -1,28 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Valued AI — AI-Powered Supply Chain Automation for Manufacturing",
+  title: "Klova - AI for Coordination-Heavy Operations",
   description:
-    "Stop chasing emails. Valued AI automates vendor communication, order tracking, and task management for manufacturing supply chain teams.",
+    "Not sure where AI fits in your business? Klova helps teams automate coordination across supply chain, finance, HR, and other operational workflows.",
   keywords: [
+    "AI operations",
+    "workflow automation",
     "supply chain automation",
-    "manufacturing",
-    "AI supply chain",
-    "vendor management",
-    "order tracking",
-    "supply chain management",
+    "finance automation",
+    "HR automation",
+    "operational coordination",
+    "business process automation",
   ],
 };
 
@@ -33,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
+      <body className={`${inter.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
