@@ -40,9 +40,9 @@ export function BookDemo() {
     <section className="section section-cta" id="final-cta">
       <div className="cta-glow"></div>
       <div className="container">
-        <h2 className="cta-heading">See how Klova could fit into your workflow</h2>
+        <h2 className="cta-heading">Ready to see where AI fits in your business?</h2>
         <p className="cta-sub">
-          From supply chain to finance to HR, we help teams reduce manual coordination and improve execution.
+          Tell us what&apos;s slowing your team down. We&apos;ll show you where AI can make a real difference, and help you get there.
         </p>
 
         <div className="demo-form-wrapper">
