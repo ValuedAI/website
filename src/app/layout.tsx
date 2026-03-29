@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "operational coordination",
     "business process automation",
   ],
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

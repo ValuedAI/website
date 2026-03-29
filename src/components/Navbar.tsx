@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -27,11 +28,15 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-brand flex items-center justify-center text-white font-bold text-sm">
-            V
-          </div>
-          <span className="text-lg font-bold text-slate-900">Valued AI</span>
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/klova_logo.webp"
+            alt="Klova logo"
+            width={32}
+            height={32}
+            className="h-8 w-auto"
+          />
+          <span className="text-lg font-bold text-slate-900">Klova</span>
         </Link>
 
         {/* Nav links (hidden on mobile) */}

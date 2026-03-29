@@ -9,7 +9,10 @@ export default function Home() {
       {/* ========== TOP NAVIGATION ========== */}
       <nav className="nav" id="nav">
         <div className="nav-inner container">
-          <a href="#" className="nav-logo">Klova</a>
+          <a href="#" className="nav-logo">
+            <img src="/klova_logo.webp" alt="Klova logo" width={28} height={28} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '8px' }} />
+            Klova
+          </a>
           <ul className="nav-links" id="navLinks">
             <li><a href="#how-it-works">Product</a></li>
             <li><a href="#solutions">Solutions</a></li>
