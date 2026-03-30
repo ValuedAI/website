@@ -104,7 +104,7 @@ export function BookDemo() {
                 >
                   {submitting ? "Submitting..." : "Book a Demo"}
                 </button>
-                <a href="mailto:hello@valued.ai" className="btn btn-outline btn-lg">
+                <a href="mailto:hello@klova.ai" className="btn btn-outline btn-lg">
                   Contact Us
                 </a>
               </div>

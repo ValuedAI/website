@@ -18,8 +18,8 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-slate-400">
-            <a href="mailto:hello@valued.ai" className="hover:text-slate-600 transition-colors">
-              hello@valued.ai
+            <a href="mailto:hello@klova.ai" className="hover:text-slate-600 transition-colors">
+              hello@klova.ai
             </a>
             <span>&copy; {new Date().getFullYear()} Valued AI</span>
           </div>
